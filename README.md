@@ -121,11 +121,7 @@ increase_focus <- function(x){
   ) |> unlist()
   
   # step 2: sort rows by mcp
-  names(mcp) <- 1:length(mcp)
-  
-  i <- as.integer(names(sort(mcp)))
-  
-  x <- x[i, ]
+  x <- x[order(mcp), ]
   
   # step 3: calculate mean row position (mrp) of presences across columns
   mrp <- apply(
@@ -136,11 +132,7 @@ increase_focus <- function(x){
   ) |> unlist()
   
   # step 4: sort columns by mrp
-  names(mrp) <- 1:length(mrp)
-  
-  j <- as.integer(names(sort(mrp)))
-  
-  x[, j]
+  x[, order(mrp)]
   
 }
 ```
